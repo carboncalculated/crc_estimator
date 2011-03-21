@@ -9,6 +9,7 @@ gem "mongoid", "2.0.0.rc.7 "
 gem "haml", ">= 3.0.25"
 gem "nifty-generators", :group => :development
 gem "calculated", "0.1.6"
+gem 'cucumber-rails', :group => :test
 
 group :test do
   gem "database_cleaner", "0.6"
@@ -29,4 +30,9 @@ end
 
 group :development, :test do
   gem "rspec-rails",        "~> 2.5.0"
+  gem "mocha", :group => :test
+
+  gem 'nokogiri'
+  gem 'pickle'
 end
+
