@@ -1,0 +1,14 @@
+%p
+  These values produce an output of
+  = raw "<span class='quantity'>#{sprintf("%.6f",@crc_calculator.co2/1000)} #{'tonnes'}</span> of <span class='metric'>#{'CO2'}</span>"
+
+%ul
+  %li
+    = link_to "Calculate Again", new_crc_calculator_path, :class => "submit"
+
+%p
+  Source Information: Click Link Below to View
+%ul
+  %li
+    - @crc_calculator.source_links.uniq.each_with_index do |link, index|
+      = link_to "Source Information: #{index+1}", link, :target => "_blank"

@@ -16,15 +16,15 @@ When /^I am using the fuel_crc object template$/ do
   @computation_id = '4cbaf8c11076f10d25000002'
   #call signature: { :amount => value, :formula_input_name => "emissions_per_kwh", fuel_object_id -> "4cbdbbd0b64f7a41cc0000c8"}
 
+end
+
+When /^I enter (\d+) kWh of electricity$/ do |arg1|
+  @value_kWh = arg1
   #Fuel Electricity Object
   #http://browser.carboncalculated.com/object_templates/fuel_crc/generic_objects/4cbdbbd0b64f7a41cc0000c8
     #Formula Inputs: emissions_per_kwh
   @electricity_object_id = '4cbdbbd0b64f7a41cc0000c8'
   @formula_input_name_for_electricity_object = 'emissions_per_kwh'
-end
-
-When /^I enter (\d+) kWh of electricity$/ do |arg1|
-  @value_kWh = arg1
 end
 
 When /^I calculate the amount of CO2$/ do
@@ -41,4 +41,28 @@ Then /^I should see "([^"]*)" tonnes of CO2$/ do |arg1|
   puts (@value - arg1.to_f).abs
   # float comparison: (expected_float - actual_float).abs <= delta
   (@value - arg1.to_f).abs.should <= 0.000001
+end
+
+Given /^the user enters "([^"]*)" (?:kWh|litres|tonnes|units) of "([^"]*)"$/ do |arg1, arg2|
+  input_element = "crc_calculator_" + arg2.tr(" ", "_")
+#  @output_element = "answer_" + arg2.tr(" ", "_")  #answer_core_electricitY
+  puts input_element
+  When("I fill in \"#{input_element}\" with \"#{arg1}\"")
+end
+
+When /^the user calculates the amount of CO2$/ do
+   When("I press \"Calculate\"")
+end
+
+Then /^the user should see "([^"]*)" tonnes of CO2/ do |arg1|
+  When("I should see \"#{arg1}\"")
+end
+
+When /^the users enters the following energy supplies$/ do |table|
+   @fuel_array = table.hashes
+   puts @fuel_array.inspect
+   @fuel_array.each do |fuel|
+     input_element = "crc_calculator_" + fuel['fuel'].tr(" ", "_")
+     When("I fill in \"#{input_element}\" with \"#{fuel['amount']}\"")
+   end
 end

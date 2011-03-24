@@ -11,6 +11,8 @@ gem "nifty-generators", :group => :development
 gem "calculated", "0.1.6"
 gem 'cucumber-rails', :group => :test
 
+gem "jquery-rails"
+
 group :test do
   gem "database_cleaner", "0.6"
   gem "test-unit"
