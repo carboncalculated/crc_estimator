@@ -17,7 +17,14 @@ test:
 # set these environment variables on your prod server
 production:
   host: <%= ENV['MONGOID_HOST'] %>
-  port: <%= ENV['MONGOID_PORT'] %>
-  username: <%= ENV['MONGOID_USERNAME'] %>
-  password: <%= ENV['MONGOID_PASSWORD'] %>
-  database: <%= ENV['MONGOID_DATABASE'] %>
+  port: 27096
+  username: mongodb
+  password: mongodb
+  database: crccalculator
+
+#  production:
+#  host: <%= ENV['MONGOID_HOST'] %>
+#  port: <%= ENV['MONGOID_PORT'] %>
+#  username: <%= ENV['MONGOID_USERNAME'] %>
+#  password: <%= ENV['MONGOID_PASSWORD'] %>
+#  database: <%= ENV['MONGOID_DATABASE'] %>
