@@ -1,6 +1,5 @@
 defaults: &defaults
-#  host: localhost
-  host: <%= ENV['MONGOID_HOST'] %>
+  host: localhost
   # slaves:
   #   - host: slave1.local
   #     port: 27018
@@ -16,16 +15,9 @@ test:
   database: crc_estimator_test
 
 # set these environment variables on your prod server
-production:
+  production:
   host: <%= ENV['MONGOID_HOST'] %>
-  port: 27096
-  username: mongodb
-  password: mongodb
-  database: crccalculator
-
-#  production:
-#  host: <%= ENV['MONGOID_HOST'] %>
-#  port: <%= ENV['MONGOID_PORT'] %>
-#  username: <%= ENV['MONGOID_USERNAME'] %>
-#  password: <%= ENV['MONGOID_PASSWORD'] %>
-#  database: <%= ENV['MONGOID_DATABASE'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
