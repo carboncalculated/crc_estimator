@@ -16,8 +16,8 @@ test:
 
 production:
  <<: *DEFAULTS
- api_server: api.carboncalculated.com
- api_key: 
+ api_server: api-stage.carboncalculated.com
+ api_key: 4239f3c95f0cf518a034373c4afb6167538c3775
 
 staging:
  <<: *DEFAULTS
