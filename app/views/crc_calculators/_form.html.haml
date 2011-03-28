@@ -1,48 +1,48 @@
 %h1 Report Metrics
 %h2 Core Emissions
-%table
+%table.calculator
   %tr
     %th Fuel Source
     %th Energy supplied
-    %th Measurement units
-    %th Calculated emissions (tonnes CO2)
+    %th.titleUnits Measurement units
+    %th.titleTonnes Calculated emissions (tonnes CO2)
   %tr
-    %td= form.label :core_electricity
-    %td= form.text_field :core_electricity
-    %td kWh
-    %td#core_electricity 0.0
+    %td.inputLabel= form.label :core_electricity
+    %td= form.text_field :core_electricity, :size => 10
+    %td.titleCentered kWh
+    %td#core_electricity.titleDecimalAlign 0.000000
   %tr
-    %td= form.label :core_natural_gas
-    %td= form.text_field :core_natural_gas
-    %td kWh
-    %td#core_natural_gas 0.0
+    %td.inputLabel= form.label :core_natural_gas
+    %td= form.text_field :core_natural_gas, :size => 10
+    %td.titleCentered kWh
+    %td#core_natural_gas.titleDecimalAlign 0.000000
 %h2 Other Fuels
-%table
+%table.calculator
   %tr
     %th Fuel Source
     %th Energy supplied
-    %th Measurement units
-    %th Calculated emissions (tonnes CO2)
+    %th.titleUnits Measurement units
+    %th.titleTonnes Calculated emissions (tonnes CO2)
   %tr
-    %td= form.label :non_core_electricity
-    %td= form.text_field :non_core_electricity
-    %td kWh
-    %td#non_core_electricity 0.0
+    %td.inputLabel= form.label :non_core_electricity
+    %td= form.text_field :non_core_electricity, :size => 10
+    %td.titleCentered kWh
+    %td#non_core_electricity.titleDecimalAlign 0.000000
   %tr
-    %td= form.label :non_core_natural_gas
-    %td= form.text_field :non_core_natural_gas
-    %td kWh
-    %td#non_core_natural_gas 0.0
+    %td.inputLabel= form.label :non_core_natural_gas
+    %td= form.text_field :non_core_natural_gas, :size => 10
+    %td.titleCentered kWh
+    %td#non_core_natural_gas.titleDecimalAlign  0.000000
   - @other_fuels.each do |var|
     %tr
-      %td= form.label var[0]
-      %td= form.text_field var[0]
-      %td= var[1]
-      %td{:id => var[0]} 0.0
+      %td.inputLabel= form.label var[0]
+      %td= form.text_field var[0], :size => 10
+      %td.titleCentered= var[1]
+      %td{:id => var[0], :class => "titleDecimalAlign"} 0.000000
   %tr
     %td
       %br
       %strong= form.label :total_emissions
     %td
     %td
-    %td#total_result 0.0
+    %td#total_result.titleDecimalAlign 0.000000

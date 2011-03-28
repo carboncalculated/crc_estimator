@@ -59,3 +59,21 @@ a {
     margin: 8px 10px; }
   .error_messages ul {
     margin: 0; }
+
+.inputLabel {
+  width: 175px; }
+
+.titleUnits {
+  width: 30px; }
+
+.titleTonnes {
+  width: 30px; }
+
+.titleCentered {
+  text-align: center; }
+
+.titleDecimalAlign {
+  text-align: right; }
+
+.calculator {
+  border-spacing: 30px 2px; }
