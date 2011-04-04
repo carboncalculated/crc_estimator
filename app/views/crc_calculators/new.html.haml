@@ -5,6 +5,5 @@
   =render :partial => "/shared/errors_for", :locals => {:resource => @crc_calculator}
   =render :partial => "form", :locals => {:form => form}
   %br
-  %input{:type => "submit", :value => "Calculate", :class => "submit"}
 =form_tag "/crc_calculators/show_liability", :id => 'crc_calculators_form_liability'  do |form|
   %input{:type => "submit", :value => "Calculate Liability", :class => "submit"}

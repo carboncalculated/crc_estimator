@@ -9,47 +9,47 @@ Feature: Operating the CRC Calculator
 
   Scenario: Computation for core electricity
     Given the user enters "12764" kWh of "core electricity"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "6.905324" tonnes of CO2 from their input of core electricity
 
   Scenario: Computation for core gas
     Given the user enters "8724" kWh of "core natural gas"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "1.601726" tonnes of CO2 has been calculated from their input of gas.
 
   Scenario: Computation for non core electricity
     Given the user enters "12764" kWh of "non core electricity"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "6.905324" tonnes of CO2 from their input of core electricity
 
   Scenario: Computation for non core gas
     Given the user enters "8724" kWh of "non core natural gas"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "1.601726" tonnes of CO2 has been calculated from their input of gas.
 
   Scenario: Computation for petrol
     Given the user enters "862" litres of "petrol"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "1.985617" tonnes of CO2 has been calculated from their input of petrol.
 
   Scenario: Computation for fuel oil
     Given the user enters "1.76" tonnes of "fuel oil"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "5.66016" tonnes of CO2 has been calculated from their input of fuel oil.
 
   Scenario: Computation for gas oil
     Given the user enters "637.42" litres of "gas oil"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "1.760554" tonnes of CO2 has been calculated from their input of gas oil.
 
   Scenario: Computation for diesel
     Given the user enters "687.5" litres of "diesel"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "1.814312" tonnes of CO2 has been calculated from their input of diesel.
 
   Scenario Outline: Computation for fuel
     Given the user enters "<amount>" units of "<fuel>"
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "<result>" tonnes of CO2 has been calculated from their input.
     Examples:
       | amount | fuel                   | result         |
@@ -90,5 +90,5 @@ Feature: Operating the CRC Calculator
       | 862    | petrol                 | 1.985617       |
       | 12764  | core electricity       | 6.905324       |
       | 8724   | core natural gas       | 1.601726       |
-    When the user calculates the amount of CO2
+    When the user waits for the ajax to finish
     Then the user should see "19.727694" tonnes of CO2

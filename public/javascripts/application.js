@@ -9,18 +9,20 @@ function logger (log_txt) {
 
 jQuery.ajaxSetup({
   'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-})
+});
 
 jQuery.fn.submitWithAjax = function() {
-  this.submit(function() {
+  for (var i = 0;i < this.length; i++ ) {
+    $(this[i]).change(function() {
     logger('client calling /crc_calculators/calculate');
     $.post('/crc_calculators/calculate', $("#crc_calculators_form").serialize(), null, "script");
     return false;
-  })
+    })
+  }
   return this;
 };
 
 $(document).ready(function() {
-  $("#crc_calculators_form").submitWithAjax();
-})
+  $(":text").submitWithAjax();
+});
 

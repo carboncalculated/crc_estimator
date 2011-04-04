@@ -66,3 +66,8 @@ When /^the users enters the following energy supplies$/ do |table|
      When("I fill in \"#{input_element}\" with \"#{fuel['amount']}\"")
    end
 end
+
+When /^the user waits for the ajax to finish$/ do
+  page.execute_script('$(":text").first().change()')
+  wait_until(10) { evaluate_script("$.active") == 0 }
+end
